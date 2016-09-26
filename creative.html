@@ -1,0 +1,214 @@
+<html>
+<head>
+<link rel='stylesheet' type='text/css' href='creative.css'/>
+<title>City Finder</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function() {
+	//$( "#cityfield" ).keyup(function() {
+	//	var url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q="+$("#cityfield")val();
+	//	$.getJSON(url,function(data) {
+	//		var everything;
+	//		everything = "<ul>";
+  	//		$.each(data, function(i,item) {
+    //				everything += "<li> "+data[i].city;
+  	//		});
+	//		everything += "</ul>";
+  	//		$("#txtHint").html(everything);
+  	//	})
+	//})
+	//$("#button").click(function(e){
+	//	var value = $("#cityfield").val();
+	//	console.log(value);
+	//	e.preventDefault();
+	//	$("#dispcity").text(value);
+	//	var myurl= "https://api.wunderground.com/api/b929e245f7df1bd6/geolookup/conditions/q/UT/";
+	//	myurl += value;
+	//	myurl += ".json";
+	//	console.log(myurl);
+	//	$.ajax({
+	//		url : myurl,
+	//		dataType : "jsonp",
+	//		success : function(parsed_json) {
+	//			var location = parsed_json['location']['city'];
+	//			var temp_string = parsed_json['current_observation']['temperature_string'];
+	//			var current_weather = parsed_json['current_observation']['weather'];
+	//			everything = "<ul>";
+	//			everything += "<li>Location: "+location;
+	//			everything += "<li>Temperature: "+temp_string;
+	//			everything += "<li>Weather: "+current_weather;
+	//			everything += "</ul>";
+	//			$("#weather").html(everything);
+	//		}
+	//	})
+	//})-->
+///////////////////////FACEBOOK BUTTON///////////////////
+	$("#facebook").click(function(e){
+		var value2 = $("#question").val();
+		console.log(value2);
+		e.preventDefault();
+		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
+		myurl2 += value2;
+		myurl2 += "&site=stackoverflow";
+		$.ajax({
+			url : myurl2,
+			datatype : "jsonp",
+			success : function(data) {
+				var something = "Top 3 Results:<br>";
+				var number1 = data['items']['0']['title'];
+				var link1 = data['items']['0']['link'];
+				var number2 = data['items']['1']['title'];
+				var link2 = data['items']['1']['link'];
+				var number3 = data['items']['2']['title'];
+				var link3 = data['items']['2']['link'];
+				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
+				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
+				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
+				$("#search_results").html(something);
+				
+			}
+		})
+	})
+//////////////////YOUTUBE BUTTON/////////////////////////
+	$("#youtube").click(function(e){
+		var value2 = $("#question").val();
+		console.log(value2);
+		e.preventDefault();
+		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
+		myurl2 += value2;
+		myurl2 += "&site=stackoverflow";
+		$.ajax({
+			url : myurl2,
+			datatype : "jsonp",
+			success : function(data) {
+				var something = "Top 3 Results:<br>";
+				var number1 = data['items']['0']['title'];
+				var link1 = data['items']['0']['link'];
+				var number2 = data['items']['1']['title'];
+				var link2 = data['items']['1']['link'];
+				var number3 = data['items']['2']['title'];
+				var link3 = data['items']['2']['link'];
+				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
+				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
+				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
+				$("#search_results").html(something);
+				
+			}
+		})
+	})
+/////////////////SPOTIFY BUTTON///////////////////////////
+	$("#spotify").click(function(e){
+		var value2 = $("#question").val();
+		console.log(value2);
+		e.preventDefault();
+		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
+		myurl2 += value2;
+		myurl2 += "&site=stackoverflow";
+		$.ajax({
+			url : myurl2,
+			datatype : "jsonp",
+			success : function(data) {
+				var something = "Top 3 Results:<br>";
+				var number1 = data['items']['0']['title'];
+				var link1 = data['items']['0']['link'];
+				var number2 = data['items']['1']['title'];
+				var link2 = data['items']['1']['link'];
+				var number3 = data['items']['2']['title'];
+				var link3 = data['items']['2']['link'];
+				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
+				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
+				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
+				$("#search_results").html(something);
+				
+			}
+		})
+	})
+///////////////////////BUZZFEED BUTTON///////////////////
+	$("#buzzfeed").click(function(e){
+		var value2 = $("#question").val();
+		console.log(value2);
+		e.preventDefault();
+		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
+		myurl2 += value2;
+		myurl2 += "&site=stackoverflow";
+		$.ajax({
+			url : myurl2,
+			datatype : "jsonp",
+			success : function(data) {
+				var something = "Top 3 Results:<br>";
+				var number1 = data['items']['0']['title'];
+				var link1 = data['items']['0']['link'];
+				var number2 = data['items']['1']['title'];
+				var link2 = data['items']['1']['link'];
+				var number3 = data['items']['2']['title'];
+				var link3 = data['items']['2']['link'];
+				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
+				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
+				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
+				$("#search_results").html(something);
+				
+			}
+		})
+	})
+///////////////////////TWITTER BUTTON///////////////////
+	$("#twitter").click(function(e){
+		var value2 = $("#question").val();
+		console.log(value2);
+		e.preventDefault();
+		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
+		myurl2 += value2;
+		myurl2 += "&site=stackoverflow";
+		$.ajax({
+			url : myurl2,
+			datatype : "jsonp",
+			success : function(data) {
+				var something = "Top 3 Results:<br>";
+				var number1 = data['items']['0']['title'];
+				var link1 = data['items']['0']['link'];
+				var number2 = data['items']['1']['title'];
+				var link2 = data['items']['1']['link'];
+				var number3 = data['items']['2']['title'];
+				var link3 = data['items']['2']['link'];
+				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
+				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
+				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
+				$("#search_results").html(something);
+				
+			}
+		})
+	})
+});
+</script>
+</head>
+<body background="http://zellox.com/wp-content/uploads/2016/05/website-backgrounds-%E2%80%AB289855827%E2%80%AC-%E2%80%AB%E2%80%AC-1920x1080.jpg")>
+<!--<header>
+Utah City Weather Lookup
+</header>
+<form>
+Enter A Utah City: <input type="text" id="cityfield" value=""><br><br>
+Suggestion List: <br><span id="txtHint">Currently Empty</span><br><br>
+<input id="button" type="submit" value="Submit">
+</form>
+<p>Selected City:</p>
+<textarea id="dispcity">None</textarea> 
+<p>Current Weather:</p>
+<div id="weather">No Weather Data</div>-->
+<div class="center">
+	<div class="inside">
+	<p>Submit a Search</p>
+	<textarea id="question" placeholder="topic"></textarea><br><br>
+	</div>
+	<hr noshade>
+	<input id="facebook" type="submit" value="">
+	<input id="youtube" type="submit" value="">
+	<input id="spotify" type="submit" value="">
+	<input id="buzzfeed" type="submit" value="">
+	<input id="twitter" type="submit" value="">
+	<br>
+	<br>
+	<br>
+	<hr noshade>
+	<div class="inside2" id="search_results">No Results</div>
+	</div>
+</body>
+</html>
