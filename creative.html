@@ -1,66 +1,29 @@
 <html>
 <head>
 <link rel='stylesheet' type='text/css' href='creative.css'/>
-<title>City Finder</title>
+<title>Super Search</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 $(document).ready(function() {
-	//$( "#cityfield" ).keyup(function() {
-	//	var url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q="+$("#cityfield")val();
-	//	$.getJSON(url,function(data) {
-	//		var everything;
-	//		everything = "<ul>";
-  	//		$.each(data, function(i,item) {
-    //				everything += "<li> "+data[i].city;
-  	//		});
-	//		everything += "</ul>";
-  	//		$("#txtHint").html(everything);
-  	//	})
-	//})
-	//$("#button").click(function(e){
-	//	var value = $("#cityfield").val();
-	//	console.log(value);
-	//	e.preventDefault();
-	//	$("#dispcity").text(value);
-	//	var myurl= "https://api.wunderground.com/api/b929e245f7df1bd6/geolookup/conditions/q/UT/";
-	//	myurl += value;
-	//	myurl += ".json";
-	//	console.log(myurl);
-	//	$.ajax({
-	//		url : myurl,
-	//		dataType : "jsonp",
-	//		success : function(parsed_json) {
-	//			var location = parsed_json['location']['city'];
-	//			var temp_string = parsed_json['current_observation']['temperature_string'];
-	//			var current_weather = parsed_json['current_observation']['weather'];
-	//			everything = "<ul>";
-	//			everything += "<li>Location: "+location;
-	//			everything += "<li>Temperature: "+temp_string;
-	//			everything += "<li>Weather: "+current_weather;
-	//			everything += "</ul>";
-	//			$("#weather").html(everything);
-	//		}
-	//	})
-	//})-->
-///////////////////////FACEBOOK BUTTON///////////////////
-	$("#facebook").click(function(e){
+    
+///////////////////////NYTIMES BUTTON///////////////////
+	$("#nytimes").click(function(e){
 		var value2 = $("#question").val();
 		console.log(value2);
 		e.preventDefault();
-		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
+		var myurl2= "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=%20%2254c5226057f444dc8e1a20ed38181484%22&q=";
 		myurl2 += value2;
-		myurl2 += "&site=stackoverflow";
 		$.ajax({
 			url : myurl2,
 			datatype : "jsonp",
 			success : function(data) {
 				var something = "Top 3 Results:<br>";
-				var number1 = data['items']['0']['title'];
-				var link1 = data['items']['0']['link'];
-				var number2 = data['items']['1']['title'];
-				var link2 = data['items']['1']['link'];
-				var number3 = data['items']['2']['title'];
-				var link3 = data['items']['2']['link'];
+				var number1 = data['response']['docs']['0']['headline']['main'];
+				var link1 = data['response']['docs']['0']['web_url'];
+				var number2 = data['response']['docs']['1']['headline']['main'];
+				var link2 = data['response']['docs']['1']['web_url'];
+				var number3 = data['response']['docs']['2']['headline']['main'];
+				var link3 = data['response']['docs']['2']['web_url'];
 				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
 				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
 				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
@@ -69,28 +32,25 @@ $(document).ready(function() {
 			}
 		})
 	})
-//////////////////YOUTUBE BUTTON/////////////////////////
-	$("#youtube").click(function(e){
+//////////////////GIPHY BUTTON/////////////////////////
+	$("#giphy").click(function(e){
 		var value2 = $("#question").val();
 		console.log(value2);
 		e.preventDefault();
-		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
+		var myurl2= "http://api.giphy.com/v1/gifs/search?q=";
 		myurl2 += value2;
-		myurl2 += "&site=stackoverflow";
+		myurl2 += "&api_key=dc6zaTOxFJmzC";
 		$.ajax({
 			url : myurl2,
-			datatype : "jsonp",
+			datatype : "json",
 			success : function(data) {
 				var something = "Top 3 Results:<br>";
-				var number1 = data['items']['0']['title'];
-				var link1 = data['items']['0']['link'];
-				var number2 = data['items']['1']['title'];
-				var link2 = data['items']['1']['link'];
-				var number3 = data['items']['2']['title'];
-				var link3 = data['items']['2']['link'];
-				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
-				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
-				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
+				var number1 = data['data']['0']['url'];
+				var number2 = data['data']['1']['url'];
+				var number3 = data['data']['2']['url'];
+				something += "<a href=\"" + number1 + "\">" + number1 + "</a><br>";
+				something += "<a href=\"" + number2 + "\">" + number2 + "</a><br>";
+				something += "<a href=\"" + number3 + "\">" + number3 + "</a><br>";
 				$("#search_results").html(something);
 				
 			}
@@ -101,77 +61,99 @@ $(document).ready(function() {
 		var value2 = $("#question").val();
 		console.log(value2);
 		e.preventDefault();
-		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
+		var myurl2= "https://api.spotify.com/v1/search?query=";
 		myurl2 += value2;
-		myurl2 += "&site=stackoverflow";
+		myurl2 += "&type=track";
 		$.ajax({
 			url : myurl2,
 			datatype : "jsonp",
 			success : function(data) {
 				var something = "Top 3 Results:<br>";
-				var number1 = data['items']['0']['title'];
-				var link1 = data['items']['0']['link'];
-				var number2 = data['items']['1']['title'];
-				var link2 = data['items']['1']['link'];
-				var number3 = data['items']['2']['title'];
-				var link3 = data['items']['2']['link'];
-				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
-				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
-				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
+				var number1 = data['tracks']['items']['0']['name'];
+                var name1 = data['tracks']['items']['0']['artists']['0']['name'];
+				var link1 = data['tracks']['items']['0']['external_urls']['spotify'];
+				var number2 = data['tracks']['items']['1']['name'];
+                var name2 = data['tracks']['items']['1']['artists']['0']['name'];
+				var link2 = data['tracks']['items']['1']['external_urls']['spotify'];
+                var number3 = data['tracks']['items']['2']['name'];
+                var name3 = data['tracks']['items']['2']['artists']['0']['name'];
+				var link3 = data['tracks']['items']['2']['external_urls']['spotify'];
+				something += "<a href=\"" + link1 + "\">" + number1 + " By " + name1 + "</a><br>";
+				something += "<a href=\"" + link2 + "\">" + number2 + " By " + name2 + "</a><br>";
+                something += "<a href=\"" + link3 + "\">" + number3 + " By " + name3 + "</a><br>";
+				$("#search_results").html(something);	
+			}
+		})
+	})
+///////////////////////NETFLIX BUTTON///////////////////
+	$("#netflix").click(function(e){
+		var value2 = $("#question").val();
+		console.log(value2);
+		e.preventDefault();
+		var myurl2= "http://netflixroulette.net/api/api.php?title=";
+		myurl2 += value2;
+		$.ajax({
+			url : myurl2,
+			datatype : "jsonp",
+			success : function(data) {
+				var something = "";
+				var number1 = data['show_title'];
+				var number2 = data['release_year'];
+				var number3 = data['rating'];
+                something += "Title: " + number1 + "<br>";
+                something += "Year: " + number2 + "<br>";
+                something += "Rating: " + number3;
+				$("#search_results").html(something);
+			}
+		})
+	})
+///////////////////////STAR WARS BUTTON///////////////////
+	$("#starwars").click(function(e){
+		var value2 = $("#question").val();
+		console.log(value2);
+		e.preventDefault();
+		var myurl2= "http://swapi.co/api/people/";
+		myurl2 += value2;
+        //88 is max
+		myurl2 += "/?format=json";
+		$.ajax({
+			url : myurl2,
+			datatype : "json",
+			success : function(data) {
+				var something = "";
+				var number1 = data['name'];
+				var number2 = data['gender'];
+				var number4 = data['birth_year'];
+				var number5 = data['height'];
+				var number6 = data['mass'];
+				something += "Name: " + number1 + "<br>";
+                something += "Gender: " + number2 + "<br>";
+                something += "Birth Year: " + number4 + "<br>";
+                something += "Height: " + number5 + "<br>";
+                something += "Weight: " + number6;
 				$("#search_results").html(something);
 				
 			}
 		})
 	})
-///////////////////////BUZZFEED BUTTON///////////////////
-	$("#buzzfeed").click(function(e){
+    ///////////////////////POKEMON BUTTON///////////////////
+	$("#pokemon").click(function(e){
 		var value2 = $("#question").val();
 		console.log(value2);
 		e.preventDefault();
-		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
+		var myurl2= "https://api.pokemontcg.io/v1/cards?name=";
 		myurl2 += value2;
-		myurl2 += "&site=stackoverflow";
 		$.ajax({
 			url : myurl2,
 			datatype : "jsonp",
 			success : function(data) {
-				var something = "Top 3 Results:<br>";
-				var number1 = data['items']['0']['title'];
-				var link1 = data['items']['0']['link'];
-				var number2 = data['items']['1']['title'];
-				var link2 = data['items']['1']['link'];
-				var number3 = data['items']['2']['title'];
-				var link3 = data['items']['2']['link'];
-				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
-				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
-				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
-				$("#search_results").html(something);
-				
-			}
-		})
-	})
-///////////////////////TWITTER BUTTON///////////////////
-	$("#twitter").click(function(e){
-		var value2 = $("#question").val();
-		console.log(value2);
-		e.preventDefault();
-		var myurl2= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=";
-		myurl2 += value2;
-		myurl2 += "&site=stackoverflow";
-		$.ajax({
-			url : myurl2,
-			datatype : "jsonp",
-			success : function(data) {
-				var something = "Top 3 Results:<br>";
-				var number1 = data['items']['0']['title'];
-				var link1 = data['items']['0']['link'];
-				var number2 = data['items']['1']['title'];
-				var link2 = data['items']['1']['link'];
-				var number3 = data['items']['2']['title'];
-				var link3 = data['items']['2']['link'];
-				something += "<a href=\"" + link1 + "\">" + number1 + "</a><br>";
-				something += "<a href=\"" + link2 + "\">" + number2 + "</a><br>";
-				something += "<a href=\"" + link3 + "\">" + number3 + "</a><br>";
+				var something = "Pokemon:<br>";
+				var number2 = data['cards']['0']['nationalPokedexNumber'];
+                var number3 = " " + data['cards']['0']['types'];
+                var number4 = " " + data['cards']['0']['weaknesses'][0]['type'];
+                something += "Number: " + number2 + "<br>";
+                something += "Type:" + number3 + "<br>";
+                something += "Weakness: " + number4;
 				$("#search_results").html(something);
 				
 			}
@@ -181,32 +163,25 @@ $(document).ready(function() {
 </script>
 </head>
 <body background="http://zellox.com/wp-content/uploads/2016/05/website-backgrounds-%E2%80%AB289855827%E2%80%AC-%E2%80%AB%E2%80%AC-1920x1080.jpg")>
-<!--<header>
-Utah City Weather Lookup
-</header>
-<form>
-Enter A Utah City: <input type="text" id="cityfield" value=""><br><br>
-Suggestion List: <br><span id="txtHint">Currently Empty</span><br><br>
-<input id="button" type="submit" value="Submit">
-</form>
-<p>Selected City:</p>
-<textarea id="dispcity">None</textarea> 
-<p>Current Weather:</p>
-<div id="weather">No Weather Data</div>-->
+
 <div class="center">
 	<div class="inside">
-	<p>Submit a Search</p>
+        <p>Submit a <strong><i>SUPER</i></strong> Search</p>
 	<textarea id="question" placeholder="topic"></textarea><br><br>
 	</div>
 	<hr noshade>
-	<input id="facebook" type="submit" value="">
-	<input id="youtube" type="submit" value="">
+	<input id="nytimes" type="submit" value="">
+	<input id="giphy" type="submit" value="">
 	<input id="spotify" type="submit" value="">
-	<input id="buzzfeed" type="submit" value="">
-	<input id="twitter" type="submit" value="">
-	<br>
-	<br>
-	<br>
+	<input id="netflix" type="submit" value="">
+	<input id="starwars" type="submit" value="">
+    <input id="pokemon" type="submit" value="">
+    <p class="instructions">Search for an Article</p>
+    <p class="instructions">Search for a Gif</p>
+    <p class="instructions">Search for a Song</p>
+    <p class="instructions">Enter a Netflix Movie/TV Title</p>
+    <p class="instructions">Enter a Number Between 1 and 88</p>
+    <p class="instructions">Enter a Pokemon Name</p>
 	<hr noshade>
 	<div class="inside2" id="search_results">No Results</div>
 	</div>

@@ -29,23 +29,24 @@
     font-size: 20px;
 }
 
-#facebook {
-    background-image: url( 'http://s3-eu-west-1.amazonaws.com/smelt/wwwimages/facebook-online-course.jpg' );
-    background-size: 140px 80px;
+#nytimes {
+    background-image: url( 'data:image/png;base64,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' );
+    background-size: 135px 75px;
+    background-repeat: no-repeat;
     height: 80px;  
     width: 140px;
     float: center;
-    margin-left: 25px;
+    margin-left: 20px;
     margin-top: 25px;
 }
 
-#youtube {
-    background-image: url( 'https://i.ytimg.com/vi/s5y-4EpmfRQ/maxresdefault.jpg' );
+#giphy {
+    background-image: url( 'http://www.extension.zone/wp-content/uploads/2015/05/Giphy-logo.jpg' );
     background-size: 140px 80px;
     height: 80px;  
     width: 140px;
     float: center;
-    margin-left: 25px;
+    margin-left: 20px;
     margin-top: 25px;
 }
 
@@ -55,26 +56,48 @@
     height: 80px;  
     width: 140px;
     float: center;
-    margin-left: 25px;
+    margin-left: 20px;
     margin-top: 25px;
 }
 
-#buzzfeed {
-    background-image: url( 'https://img.buzzfeed.com/buzzfeed-static/static/images/global/buzzfeed.jpg?output-format=jpg&resize=400:*' );
+#netflix {
+    background-image: url( 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Netflix_logo.svg/1280px-Netflix_logo.svg.png' );
     background-size: 140px 80px;
     height: 80px;  
     width: 140px;
     float: center;
-    margin-left: 25px;
+    margin-left: 20px;
     margin-top: 25px;
 }
 
-#twitter {
-    background-image: url( 'https://i.kinja-img.com/gawker-media/image/upload/f1b5lfuzmwvzs7nslwbn.jpg' );
+#starwars {
+    background-image: url( 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2000px-Star_Wars_Logo.svg.png' );
     background-size: 140px 80px;
     height: 80px;  
     width: 140px;
     float: center;
-    margin-left: 25px;
+    margin-left: 20px;
     margin-top: 25px;
+}
+
+#pokemon {
+    background-image: url( 'http://img.wallpaperfolder.com/f/68C877B7187A/pokemon-logo-id-94079-ndash.png' );
+    background-size: 135px 80px;
+    height: 80px;  
+    width: 140px;
+    float: center;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+.instructions {
+    display: inline-block;
+    height: 50px;  
+    width: 140px;
+    float: center;
+    margin-left: 20px;
+    margin-top: 15px;
+    text-align: center;
+    vertical-align: middle;
+    font: 15px "Rockweld", cursive;
 }
